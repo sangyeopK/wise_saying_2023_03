@@ -1,10 +1,10 @@
-package org.example;
+package org.example.wiseSaying.entity.WiseSaying;
 
 public class WiseSaying {
     private int id;
     private String content;
     private String authorName;
-    WiseSaying(int id, String content, String authorName){
+    public WiseSaying(int id, String content, String authorName){
         this.id = id;
         this.content = content;
         this.authorName = authorName;
