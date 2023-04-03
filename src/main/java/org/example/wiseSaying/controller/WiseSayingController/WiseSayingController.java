@@ -42,8 +42,13 @@ public class WiseSayingController {
         }
         WiseSaying wiseSaying = finalByid(id);
 
-        list.remove(wiseSaying);
-        System.out.printf("%d번이 삭제 되었습니다\n", id);
+        if (wiseSaying == null) {
+            System.out.println("삭제할게 없소");
+            return;
+        } else {
+            list.remove(wiseSaying);
+            System.out.printf("%d번이 삭제 되었습니다\n", id);
+        }
     }
 
     private WiseSaying finalByid(int id) {
@@ -62,19 +67,22 @@ public class WiseSayingController {
             return;
         }
         WiseSaying wiseSaying = finalByid(id);
+        if (wiseSaying == null) {
+            System.out.println("삭제할게 없소");
+            return;
+        } else {
+            System.out.printf("기존명언 %s", wiseSaying.getContent());
+            System.out.printf("수정할 명언");
+            String content = ContainerSc.getScanner().nextLine().trim();
 
+            System.out.printf("기존작가 %s", wiseSaying.getContent());
+            System.out.printf("수정할 작가");
+            String authorName = ContainerSc.getScanner().nextLine().trim();
 
-        System.out.printf("기존명언 %s", wiseSaying.getContent());
-        System.out.printf("수정할 명언");
-        String content = ContainerSc.getScanner().nextLine().trim();
+            wiseSaying.setContent(content);
+            wiseSaying.setAuthorName(authorName);
 
-        System.out.printf("기존작가 %s", wiseSaying.getContent());
-        System.out.printf("수정할 작가");
-        String authorName = ContainerSc.getScanner().nextLine().trim();
-
-        wiseSaying.setContent(content);
-        wiseSaying.setAuthorName(authorName);
-
-        System.out.printf("%d번이 수정 되었습니다\n", id);
+            System.out.printf("%d번이 수정 되었습니다\n", id);
+        }
     }
 }
