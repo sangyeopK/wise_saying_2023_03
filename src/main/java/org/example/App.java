@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.system.controller.SystemController.SystemController;
 import org.example.wiseSaying.controller.WiseSayingController.WiseSayingController;
+import org.example.wiseSaying.entity.WiseSaying.WiseSaying;
 
 public class App {
     void run() {
@@ -27,6 +28,8 @@ public class App {
                 case "삭제":
                     WiseSayingController.remove(rq);
                     break;
+                case "수정":
+                    WiseSayingController.edit(rq);
             }
         }
     }
